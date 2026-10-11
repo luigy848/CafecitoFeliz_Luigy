@@ -1,0 +1,101 @@
+.sale {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: stretch;
+  height: calc(100vh - 170px);
+  min-height: 460px;
+}
+
+.sale-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.sale-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sale-search {
+  max-width: 260px;
+}
+
+.sale-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sale-side > .customer-panel,
+.sale-side > .payment-type {
+  flex-shrink: 0;
+}
+
+.payment-type {
+  background-color: var(--paper);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+
+.payment-type-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--coffee-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.payment-type-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.payment-option {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 9px 8px;
+  border: 2px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  background-color: var(--paper);
+  color: var(--coffee-soft);
+  cursor: pointer;
+}
+
+.payment-option:hover {
+  border-color: var(--terracotta);
+}
+
+.payment-option-active {
+  background-color: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--paper);
+}
+
+@media (max-width: 1000px) {
+  .sale {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .sale-menu,
+  .sale-side {
+    height: auto;
+    overflow: visible;
+  }
+}

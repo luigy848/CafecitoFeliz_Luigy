@@ -1,0 +1,148 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-page h1 {
+  margin: 0;
+}
+
+.admin-hint {
+  color: var(--coffee-light);
+  font-size: 0.88rem;
+  max-width: 70ch;
+  margin: 0;
+}
+
+.admin-form {
+  background-color: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  align-items: end;
+}
+
+.admin-form h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--coffee-light);
+}
+
+.admin-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+}
+
+.admin-table {
+  background-color: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.admin-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  background-color: var(--coffee);
+  padding: 10px 12px;
+}
+
+.admin-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--cream);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.admin-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.admin-link:hover {
+  color: var(--terracotta-dark);
+}
+
+.admin-note {
+  font-size: 0.78rem;
+  color: var(--coffee-light);
+}
+
+.row-muted {
+  opacity: 0.5;
+}
+
+.not-found {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+@media (max-width: 900px) {
+  .admin-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.customers-search {
+  max-width: 340px;
+}
+
+.customer-level {
+  font-weight: 700;
+  color: var(--green);
+}
+
+.customer-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  background-color: var(--cream);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.customer-history h2 {
+  margin: 0;
+  font-size: 1rem;
+}

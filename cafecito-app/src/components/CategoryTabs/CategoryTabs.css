@@ -1,0 +1,27 @@
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.category-tab {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--coffee-soft);
+  background-color: var(--paper);
+  border: 2px solid var(--cream-dark);
+  border-radius: 999px;
+  padding: 9px 18px;
+  cursor: pointer;
+}
+
+.category-tab:hover {
+  border-color: var(--terracotta);
+}
+
+.category-tab-active {
+  background-color: var(--coffee);
+  border-color: var(--coffee);
+  color: var(--cream);
+}
