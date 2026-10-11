@@ -1,0 +1,74 @@
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
+
+const generateToken = (userId, name, role) => {
+  return jwt.sign({ userId, name, role }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN || "8h",
+  });
+};
+
+const generateRefreshToken = (userId) => {
+  const refreshToken = jwt.sign({ userId }, process.env.JWT_REFRESH_TOKEN, {
+    expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || "7d",
+  });
+
+  return { token: refreshToken, userId };
+};
+
+const generatePassword = async (password) => {
+  const saltRounds = 10;
+  return await bcrypt.hash(password, saltRounds);
+};
+
+const getProfiles = async (req, res, next) => {
+  try {
+    const profiles = await User.find({ active: true })
+      .select("name username role")
+      .sort({ role: 1, name: 1 });
+
+    res.status(200).json(profiles);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const login = async (req, res, next) => {
+  try {
+    const { username, password } = req.body;
+
+    const userExist = await User.findOne({ username });
+
+    if (!userExist) {
+      return res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    if (!userExist.active) {
+      return res.status(403).json({ message: "This account is disabled" });
+    }
+
+    const isMatch = await bcrypt.compare(password, userExist.password);
+
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    const token = generateToken(userExist._id, userExist.name, userExist.role);
+    const refreshToken = generateRefreshToken(userExist._id);
+
+    res.status(200).json({
+      token,
+      refreshToken: refreshToken.token,
+      user: {
+        _id: userExist._id,
+        name: userExist.name,
+        username: userExist.username,
+        role: userExist.role,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { login, getProfiles, generatePassword };

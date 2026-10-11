@@ -1,0 +1,31 @@
+{
+  "name": "cafecito-api",
+  "version": "1.0.0",
+  "description": "API del punto de venta Cafecito Feliz",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed:menu": "node ./src/seed/productsCategories.js",
+    "seed:rewards": "node ./src/seed/loyaltyRewards.js",
+    "seed:staff": "node ./src/seed/adminUser.js",
+    "seed": "npm run seed:menu && npm run seed:rewards && npm run seed:staff",
+    "seed:demo": "node ./src/seed/demoCustomers.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
