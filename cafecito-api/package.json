@@ -8,7 +8,7 @@
     "start": "node server.js",
     "seed:menu": "node ./src/seed/productsCategories.js",
     "seed:rewards": "node ./src/seed/loyaltyRewards.js",
-    "seed:staff": "node ./src/seed/adminUser.js",
+    "seed:staff": "node ./src/seed/staffUsers.js",
     "seed": "npm run seed:menu && npm run seed:rewards && npm run seed:staff",
     "seed:demo": "node ./src/seed/demoCustomers.js"
   },
