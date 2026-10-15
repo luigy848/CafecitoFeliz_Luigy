@@ -1,7 +1,6 @@
 import Sale from "../models/Sale.js";
 import Product from "../models/Product.js";
 import Customer from "../models/Customer.js";
-import PaymentMethod from "../models/PaymentMethod.js";
 import {
   calculateDiscount,
   roundMoney,
@@ -54,14 +53,13 @@ const buildSaleItems = async (items) => {
 const populateSale = async (sale) => {
   await sale.populate("customer", "name phone code");
   await sale.populate("servedBy", "name role");
-  await sale.populate("paymentMethod");
   await sale.populate("products.product", "name imageURL");
   return sale;
 };
 
 const createSale = async (req, res, next) => {
   try {
-    const { customerId, items, paymentType, paymentMethodId } = req.body;
+    const { customerId, items, paymentType } = req.body;
 
     let customer = null;
 
@@ -69,21 +67,6 @@ const createSale = async (req, res, next) => {
       customer = await Customer.findById(customerId);
       if (!customer || !customer.active) {
         return res.status(404).json({ message: "Customer not found" });
-      }
-    }
-
-    let paymentMethod = null;
-    if (paymentMethodId) {
-      paymentMethod = await PaymentMethod.findById(paymentMethodId);
-
-      if (!paymentMethod || !paymentMethod.isActive) {
-        return res.status(404).json({ message: "Payment method not found" });
-      }
-
-      if (!customer || paymentMethod.customer.toString() !== customerId) {
-        return res.status(403).json({
-          message: "That payment method belongs to another customer",
-        });
       }
     }
 
@@ -115,7 +98,6 @@ const createSale = async (req, res, next) => {
       discount,
       total,
       visitsAtSale: visits,
-      paymentMethod: paymentMethod ? paymentMethod._id : null,
       paymentType: paymentType || "cash",
       paymentStatus: "paid",
       status: "preparing",
@@ -161,7 +143,6 @@ const getSaleById = async (req, res, next) => {
     const sale = await Sale.findById(id)
       .populate("customer", "name phone code")
       .populate("servedBy", "name")
-      .populate("paymentMethod")
       .populate("products.product", "name imageURL");
 
     if (!sale) {

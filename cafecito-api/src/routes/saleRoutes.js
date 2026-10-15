@@ -34,10 +34,6 @@ const createSaleValidation = [
     .optional()
     .isIn(["cash", "credit_card", "debit_card", "bank_transfer"])
     .withMessage("Invalid payment type"),
-  body("paymentMethodId")
-    .optional()
-    .isMongoId()
-    .withMessage("Payment method ID must be a valid MongoDB ObjectId"),
 ];
 
 const updateStatusValidation = [

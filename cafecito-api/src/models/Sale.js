@@ -35,11 +35,6 @@ const saleSchema = new mongoose.Schema(
     },
     total: { type: Number, required: true, min: 0 },
     visitsAtSale: { type: Number, required: true, min: 0 },
-    paymentMethod: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "PaymentMethod",
-      default: null,
-    },
     paymentType: {
       type: String,
       enum: ["cash", "credit_card", "debit_card", "bank_transfer"],

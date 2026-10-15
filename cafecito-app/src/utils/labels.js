@@ -5,13 +5,6 @@ export const PAYMENT_LABELS = {
   bank_transfer: "Transferencia",
 };
 
-export const PAYMENT_STATUS_LABELS = {
-  pending: "Pendiente",
-  paid: "Pagado",
-  failed: "Fallido",
-  refunded: "Devuelto",
-};
-
 export const SALE_STATUS_LABELS = {
   pending: "Pendiente",
   preparing: "Preparando",

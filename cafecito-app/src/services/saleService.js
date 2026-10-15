@@ -1,11 +1,10 @@
 import apiClient from "./apiClient";
 
-const createSale = async ({ customerId, items, paymentType, paymentMethodId }) => {
+const createSale = async ({ customerId, items, paymentType }) => {
   const response = await apiClient.post("/sales", {
     customerId,
     items,
     paymentType,
-    paymentMethodId,
   });
   return response.data;
 };
