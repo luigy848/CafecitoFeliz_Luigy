@@ -1,0 +1,24 @@
+.navigation {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--cream-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.nav-link:hover {
+  background-color: var(--coffee-soft);
+  color: var(--cream);
+}
+
+.nav-link-active {
+  background-color: var(--terracotta);
+  color: var(--paper);
+}

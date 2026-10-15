@@ -1,0 +1,33 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--coffee-soft);
+}
+
+.field-input {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--coffee);
+  background-color: var(--paper);
+  padding: 11px 14px;
+  border: 2px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--terracotta);
+}
+
+.field-input:disabled {
+  background-color: var(--cream-dark);
+  color: var(--coffee-light);
+}

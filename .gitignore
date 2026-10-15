@@ -1,0 +1,15 @@
+# Dependencias: se reinstalan con `npm install`
+node_modules/
+
+# Variables de entorno con claves y contraseñas (.env.example SÍ se sube)
+.env
+*.local
+
+# Carpeta que genera `npm run build` en el frontend
+dist/
+
+# Registros de errores de npm
+npm-debug.log*
+
+# Archivos de error que genera el errorHandler
+logs/

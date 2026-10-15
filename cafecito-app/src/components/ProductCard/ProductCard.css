@@ -1,0 +1,44 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  padding: 0 0 12px;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--terracotta);
+}
+
+.product-card:active {
+  transform: translateY(0);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--cream-dark);
+}
+
+.product-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--coffee);
+  margin: 10px 10px 4px;
+  line-height: 1.25;
+}
+
+.product-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--terracotta);
+}

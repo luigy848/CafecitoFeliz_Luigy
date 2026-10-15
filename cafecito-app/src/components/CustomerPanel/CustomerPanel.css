@@ -1,0 +1,82 @@
+.customer-panel {
+  background-color: var(--paper);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customer-panel-found {
+  border-left: 5px solid var(--green);
+}
+
+.customer-search,
+.customer-create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.customer-create {
+  border-top: 1px dashed var(--cream-dark);
+  padding-top: 12px;
+}
+
+.customer-data {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.customer-name {
+  font-size: 1.15rem;
+}
+
+.customer-phone {
+  font-size: 0.9rem;
+  color: var(--coffee-soft);
+}
+
+.customer-code {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: 0.04em;
+}
+
+.customer-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: var(--cream);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.customer-visits {
+  font-weight: 700;
+}
+
+.customer-reward {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.customer-no-reward {
+  color: var(--coffee-light);
+}
+
+.customer-next {
+  color: var(--coffee-soft);
+  font-size: 0.8rem;
+}
+
+.customer-optional {
+  font-size: 0.8rem;
+  color: var(--coffee-light);
+  line-height: 1.4;
+  margin: 0;
+}

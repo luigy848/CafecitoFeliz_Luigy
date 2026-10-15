@@ -1,0 +1,139 @@
+.cart {
+  flex: 1 1 auto;
+  min-height: 240px;
+  overflow: hidden;
+  background-color: var(--paper);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-title {
+  flex-shrink: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--coffee-light);
+  margin: 0;
+}
+
+.cart-empty {
+  color: var(--coffee-light);
+  font-size: 0.9rem;
+}
+
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--cream);
+}
+
+.cart-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--cream-dark);
+  background-color: var(--paper);
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--coffee);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.qty-btn:hover:not(:disabled) {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cart-item-subtotal {
+  font-weight: 600;
+  min-width: 62px;
+  text-align: right;
+}
+
+.cart-item-remove {
+  border: none;
+  background: none;
+  color: var(--coffee-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cart-item-remove:hover {
+  color: var(--danger);
+}
+
+.cart-totals {
+  flex-shrink: 0;
+  border-top: 2px dashed var(--cream-dark);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--coffee-soft);
+}
+
+.cart-row-discount {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.cart-row-total {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--coffee);
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 8px;
+}
+
+.cart .btn {
+  flex-shrink: 0;
+}
