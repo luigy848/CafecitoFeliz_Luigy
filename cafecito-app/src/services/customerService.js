@@ -33,7 +33,6 @@ const createCustomer = async (data) => {
   const payload = {
     phone: data.phone?.replaceAll(" ", ""),
     name: data.name?.trim(),
-    birthDate: data.birthDate || undefined,
   };
 
   const response = await apiClient.post("/customers", payload);

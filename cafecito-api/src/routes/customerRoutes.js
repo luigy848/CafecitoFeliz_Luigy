@@ -38,10 +38,6 @@ const createCustomerValidation = [
     .isNumeric()
     .withMessage("Phone must contain only digits"),
   body("name").notEmpty().withMessage("Name is required"),
-  body("birthDate")
-    .optional()
-    .isISO8601()
-    .withMessage("birthDate must be a valid date (YYYY-MM-DD)"),
 ];
 
 const updateCustomerValidation = [
@@ -55,10 +51,6 @@ const updateCustomerValidation = [
     .isNumeric()
     .withMessage("Phone must contain only digits"),
   body("name").optional().notEmpty().withMessage("Name cannot be empty"),
-  body("birthDate")
-    .optional()
-    .isISO8601()
-    .withMessage("birthDate must be a valid date (YYYY-MM-DD)"),
 ];
 
 router.get("/customers", authMiddleware, isStaff, getCustomers);

@@ -98,7 +98,7 @@ const getCustomerSales = async (req, res, next) => {
 
 const createCustomer = async (req, res, next) => {
   try {
-    const { phone, name, birthDate } = req.body;
+    const { phone, name } = req.body;
 
     const customerExist = await Customer.findOne({ phone });
     if (customerExist) {
@@ -110,7 +110,6 @@ const createCustomer = async (req, res, next) => {
     const newCustomer = await Customer.create({
       phone,
       name,
-      birthDate,
       code: await generateCustomerCode(),
     });
 
@@ -128,11 +127,11 @@ const createCustomer = async (req, res, next) => {
 const updateCustomer = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { phone, name, birthDate } = req.body;
+    const { phone, name } = req.body;
 
     const updatedCustomer = await Customer.findByIdAndUpdate(
       id,
-      { phone, name, birthDate },
+      { phone, name },
       { new: true, runValidators: true },
     );
 

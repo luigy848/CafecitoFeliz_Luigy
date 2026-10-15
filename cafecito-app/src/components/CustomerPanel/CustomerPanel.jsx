@@ -12,7 +12,7 @@ export default function CustomerPanel() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const [newCustomer, setNewCustomer] = useState({ name: "", birthDate: "" });
+  const [newCustomer, setNewCustomer] = useState({ name: "" });
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -46,14 +46,13 @@ export default function CustomerPanel() {
       const created = await customerService.createCustomer({
         phone,
         name: newCustomer.name,
-        birthDate: newCustomer.birthDate || undefined,
       });
 
       const data = await customerService.getCustomerBenefits(created._id);
       selectCustomer(data.customer, data);
 
       setShowForm(false);
-      setNewCustomer({ name: "", birthDate: "" });
+      setNewCustomer({ name: "" });
     } catch (err) {
       setError(err.message || "No se pudo registrar al cliente");
     } finally {
@@ -145,18 +144,6 @@ export default function CustomerPanel() {
               }))
             }
             required
-          />
-          <Input
-            label="Fecha de nacimiento (opcional)"
-            name="birthDate"
-            type="date"
-            value={newCustomer.birthDate}
-            onChange={(event) =>
-              setNewCustomer((current) => ({
-                ...current,
-                birthDate: event.target.value,
-              }))
-            }
           />
           <Button type="submit" disabled={loading}>
             {loading ? "Registrando..." : "Registrar cliente"}

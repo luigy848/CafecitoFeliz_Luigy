@@ -11,7 +11,6 @@ const customerSchema = new mongoose.Schema(
       maxlength: 10,
     },
     name: { type: String, required: true, trim: true },
-    birthDate: { type: Date },
     code: { type: String, unique: true, trim: true },
     active: { type: Boolean, default: true },
   },
